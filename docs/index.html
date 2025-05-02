@@ -1,1 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manasvi Gupta | Front-End Developer</title>
+  <link rel="stylesheet" href="index.css"/>
 
+  <style>
+    :root {
+      --primary: #4fc3f7;  /* fresh blue */
+      --accent: #7e57c2;   /* vibrant purple */
+      --dark: #1e1e1e;
+      --light: #ffffff;
+      --gray-bg: #fefefe;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--gray-bg);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeInUp 2s ease-out forwards;
+    }
+
+    .hero span {
+      color: #ffeb3b;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 2s ease-out 0.5s forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 16px;
+      background-color: var(--primary); /* Blue */
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent); /* Purple */
+      transform: scale(1.05);
+    }
+
+    .btn-sm {
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 16px;
+      background-color: var(--primary); /* Blue */
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-sm:hover {
+      background-color: var(--accent); /* Purple */
+      transform: scale(1.05);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--dark);
+      color: var(--light);
+      padding: 1rem 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: slideIn 1s ease-out 0.5s forwards;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: var(--gray-bg);
+      opacity: 0;
+      animation: fadeInSection 1s ease-out forwards;
+    }
+
+    .section.dark {
+      background: #f1f1f1;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .section ul {
+      list-style-position: inside;
+      padding-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .section ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInSection {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Cards and Grids */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .projects-grid, .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card, .service-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .project-card:hover,
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3,
+    .service-card h3 {
+      color: var(--primary);
+    }
+
+    .btn-sm {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-sm:hover {
+      background: var(--accent);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .contact-form button {
+      margin-top: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .highlight-vscode {
+      color: #6410ec; /* VS Code blue */
+      font-weight: bold;
+    }
+
+    .highlight-github {
+      color:  #6410ec;  /* GitHub dark */
+      font-weight: bold;
+    }
+
+    /* Gallery Modal */
+    .gallery-modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1; /* Stay on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+      padding-top: 60px;
+    }
+
+    .gallery-modal .gallery-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery-modal img {
+      margin: 10px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .gallery-modal .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: black;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Hello, I'm <span>Manasvi Gupta</span></h1>
+      <p>Front-End Developer passionate about clean design, websites, and video editing</p>
+      <a href="#contact" class="btn" style="background-color: white; color: black;">Let’s Work Together</a>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">YourName.dev</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about" class="section fade-in">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>I’m a front-end developer specializing in user-friendly websites, UI design, and video editing. I recently worked on:</p>
+        <ul>
+          <li><strong>Canteen Food Ordering Website:</strong> Responsive design, UPI QR payments, and admin panel for easy management.</li>
+          <li><strong>Product Launch Website:</strong> Interactive animations, countdown timer, and responsive design for a beauty product launch.</li>
+        </ul>
+        <p>
+          I regularly work with 
+          <span class="highlight-vscode">Visual Studio Code (VS Code)</span> 
+          for development and use 
+          <span class="highlight-github">GitHub</span> 
+          to manage and share my code.
+        </p>
+        <p>Let's build something great together!</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section dark fade-in">
+      <div class="container">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="delishdish.png" alt="Canteen Food Ordering System">
+            <h3>Canteen Food Ordering System</h3>
+            <p>A fully developed full-stack web application for college canteens. Features include a responsive front-end UI for browsing and ordering food, a custom UPI-based payment system, and a secure back-end with PHP and MySQL for managing users, orders, menu items, and admin operations. Modules include user interface, admin panel, order management, and feedback collection.</p>
+            <a href="javascript:void(0);" class="btn-sm" onclick="openGallery()">View Photos</a>
+          </div>
+
+          <div class="project-card">
+            <img src="product.png" alt="Product Launch Website">
+            <h3>Product Launch Website (Lipstick)</h3>
+            <p>Designed an engaging product launch page for a beauty product, featuring interactive animations for different lipstick shades, a countdown timer, and a responsive layout for seamless viewing on all devices.</p>
+            <a href="https://manasvi984.github.io/productlaunch/" class="btn-sm">View Design</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+      <span class="close" onclick="closeGallery()">&times;</span>
+      <div class="gallery-content">
+        <img src="delishdish.png" alt="Screenshot 1">
+        <img src="menu page.png" alt="Screenshot 2">
+        <img src="about page.png" alt="Screenshot 3">
+        <img src="Rating page.png" alt="Screenshot 4">
+        <img src="contact page.png" alt="Screenshot 5">
+        <img src="admin panel.png" alt="Screenshot 6">
+      </div>
+    </div>
+  </main>
+
+  <section id="services" class="section fade-in">
+    <div class="container">
+      <h2>What I Offer</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Front-End Website Development</h3>
+          <p>Responsive, fast-loading websites built using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="service-card">
+          <h3>Website Templates</h3>
+          <p>Custom templates for portfolios, landing pages, and small business sites.</p>
+        </div>
+        <div class="service-card">
+          <h3>Video Editing</h3>
+          <p>Clean, professional edits for reels, social media, and promotional videos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section dark fade-in">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p>Email: manasvigupta113@gmail.com</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Manasvi Gupta. All rights reserved.</p>
+  </div>  
+</footer>
+
+  <script>
+    // Modal functionality
+    function openGallery() {
+      document.getElementById("galleryModal").style.display = "block";
+    }
+
+    function closeGallery() {
+      document.getElementById("galleryModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
